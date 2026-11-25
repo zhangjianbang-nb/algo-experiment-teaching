@@ -1,0 +1,50 @@
+{
+ "searched": {
+  "google_scholar": {
+   "status": "blocked",
+   "fallback": "OpenAlex API + arXiv abs/ar5iv HTML + 论文 PDF/pdftotext",
+   "queries": [
+    "AI algorithm experimental methodology",
+    "ablation study machine learning",
+    "reproducibility machine learning"
+   ],
+   "date": "2026-11-23"
+  },
+  "chatgpt": {
+   "status": "partial",
+   "fallback": "本机 flow-llm 报告与论文原文交叉核对；外部评审待补",
+   "archive": "",
+   "sessions": 0
+  },
+  "youtube": {
+   "status": "blocked",
+   "fallback": "未使用视频源；以论文与综述为主",
+   "videos": 0,
+   "note": "视频源不参与事实核验"
+  }
+ },
+ "covered_directions": [
+  "hypothesis",
+  "comparison",
+  "ablation",
+  "implementation",
+  "efficiency",
+  "frontier"
+ ],
+ "gaps": [
+  {
+   "item": "Google Scholar 全文检索",
+   "reason": "访问受限，改用 OpenAlex 元数据与 arXiv 全文"
+  },
+  {
+   "item": "部分近年论文的作者全名",
+   "reason": "仅按 flow-llm 报告转引姓氏，未逐一核对 OpenAlex 作者列表"
+  },
+  {
+   "item": "工业界内部实验规范",
+   "reason": "公开材料少，本书以公开论文与可复现实践为主"
+  }
+ ],
+ "limitations": "近年（2025–2026）连续流论文的数字来自 flow-llm 报告转引，未全部独立复现；五篇经典案例的表格已逐表核对原文，其余论文为摘要级核验并在页面标注。",
+ "verified_at": "2026-11-23"
+}

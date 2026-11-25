@@ -1,0 +1,114 @@
+{
+ "timeline": [
+  {
+   "year": 2014,
+   "title": "Adam 优化器",
+   "note": "一阶/二阶矩 + 偏差校正，成为默认优化器；后续 AdamW 修正权重衰减。",
+   "paper": "adam"
+  },
+  {
+   "year": 2015,
+   "title": "ResNet 与 BatchNorm",
+   "note": "残差连接解决退化；批归一化稳定训练。两者都把「训练失败」转成可干预的机制。",
+   "paper": "resnet"
+  },
+  {
+   "year": 2016,
+   "title": "LayerNorm",
+   "note": "把归一化从 batch 维移到特征维，适配序列与小 batch。",
+   "paper": "layernorm"
+  },
+  {
+   "year": 2017,
+   "title": "Transformer 与 AdamW",
+   "note": "注意力替代循环；解耦权重衰减修正 Adam 的泛化。",
+   "paper": "attention"
+  },
+  {
+   "year": 2019,
+   "title": "实验报告与复现调查",
+   "note": "Show Your Work 把预算写进结果；Raff 把复现失败分类。",
+   "paper": "showyourwork"
+  },
+  {
+   "year": 2021,
+   "title": "LoRA、Switch 与方差研究",
+   "note": "低秩适配、同 FLOPs 稀疏、方差分解三条方法论线同年出现。",
+   "paper": "lora"
+  },
+  {
+   "year": 2022,
+   "title": "Chinchilla 与 FlashAttention",
+   "note": "同算力缩放律；IO-aware 精确注意力。",
+   "paper": "chinchilla"
+  },
+  {
+   "year": 2023,
+   "title": "QLoRA 与涌现批判",
+   "note": "量化+低秩；用连续指标检验「涌现」是否是指标伪影。",
+   "paper": "qlora"
+  },
+  {
+   "year": 2024,
+   "title": "DeepSeekMoE、无辅助损失与 Logit-KL",
+   "note": "细粒度专家；偏置均衡；logit 测地线。",
+   "paper": "deepseekmoe"
+  },
+  {
+   "year": 2025,
+   "title": "FS-DFM 与 Transition Matching",
+   "note": "步数感知少步流；离散时间连续状态统一框架。",
+   "paper": "fsdfm"
+  },
+  {
+   "year": 2026,
+   "title": "FMLM、Lafa、RePlaid、LangFlow",
+   "note": "一步连续流、8B 块级流、连续扩散缩放律、Gen PPL 竞争。",
+   "paper": "fmlm"
+  },
+  {
+   "year": 2027,
+   "title": "展望：Flow+MoE 的系统实验",
+   "note": "展望，非已发表：块级流与 MoE 路由的组合仍需 E2/E3 级证据。",
+   "outlook": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "residual-block",
+   "to": "scaled-dot-attention",
+   "type": "inherit",
+   "note": "残差连接被 Transformer 继承为深层训练的基础组件。"
+  },
+  {
+   "from": "scaled-dot-attention",
+   "to": "multi-head-attention",
+   "type": "extend",
+   "note": "单头扩展到多头，增加子空间表达。"
+  },
+  {
+   "from": "adam-update",
+   "to": "adamw-update",
+   "type": "improve",
+   "note": "解耦权重衰减修正 Adam 的泛化。"
+  },
+  {
+   "from": "lora-adaptation",
+   "to": "qlora-4bit",
+   "type": "extend",
+   "note": "在低秩增量上叠加 4-bit 量化。"
+  },
+  {
+   "from": "switch-routing",
+   "to": "aux-free-balancing",
+   "type": "replace",
+   "note": "用非梯度偏置替代辅助损失。"
+  },
+  {
+   "from": "multi-head-attention",
+   "to": "switch-routing",
+   "type": "extend",
+   "note": "多头注意力的 FFN 被替换为稀疏专家层。"
+  }
+ ]
+}
